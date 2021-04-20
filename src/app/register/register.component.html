@@ -1,0 +1,100 @@
+
+
+<img [src]="img" class="bg" alt="">
+<div class="container">
+    <form [formGroup]="regform" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+            <span class="text-danger"
+            *ngIf="(f.firstName.touched || submitted) && f.firstName.errors?.required">
+            User Name is required
+        </span>
+        <!-- <span class="text-danger"
+            *ngIf="f.firstName.touched && f.firstName.errors?.userNameNotAvailable">
+            User Name is not available
+        </span> -->
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email" class="form-control" required>
+            <span class="text-danger"
+            *ngIf="(f.email.touched || submitted) && f.email.errors?.required">
+            Email is required
+        </span>
+        <span class="text-danger"
+            *ngIf="f.email.touched && f.email.errors?.email">
+            Enter a valid email address
+        </span>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control" required>
+            <span class="text-danger"
+            *ngIf="(f.password.touched || submitted) && f.password.errors?.required">
+            Password is required
+        </span>
+        <span class="text-danger"
+            *ngIf="f.password.touched && f.password.errors?.invalidPassword">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number
+        </span>
+        </div>
+        <div class="form-group">
+            <label>Conf Password</label>
+            <input type="password" formControlName="confpassword" class="form-control" required>
+            <span class="text-danger"
+            *ngIf="(f.confpassword.touched || submitted)&& f.confpassword.errors?.required">
+            Confirm Password is required
+        </span>
+        <span class="text-danger"
+            *ngIf="f.confpassword.touched && f.confpassword.errors?.passwordMismatch">
+            Passwords doesnot match
+        </span>
+        </div>
+        <div class="form-group">
+            <label>BirthDate</label>
+            <input type="date" name="birthdate" formControlName="birthdate" class="form-control" >
+        </div>
+    
+        <!-- routerLink="login" -->
+        <p *ngIf="clicked">Successfully Registered!!<br>Now you have to Login: Go to <a href="#" >login</a></p>
+        <button type="submit" class="btn btn-primary" id="btn" appMouseove [disabled]="regform.invalid">Submit</button>
+    </form>
+</div>
+
+
+
+
+<!-- <div class="container1">
+<table class="table">
+    <thead class="thead-dark">
+      <tr id="font1">
+       
+        <th scope="col">firstName</th>
+        <th scope="col">email</th>
+        <th scope="col">password</th>
+        <th scope="col">birthdate</th>
+        <th scope="col">Action</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of listdata" id="font">
+       
+        <td>{{data.firstName}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.password}}</td>
+        <td>{{data.birthdate}}</td>
+        <td></td>
+        
+      </tr>
+  
+    </tbody>
+  </table>
+
+</div> -->
+
+
+
+

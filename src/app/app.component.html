@@ -1,0 +1,58 @@
+<div *ngIf="!isClicked">
+    <img [src]="img" class="bg" alt="">
+    <div class="container">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" nonvalidate>
+            <!-- <div class="form-group">
+                <label>User Name</label>
+                <input type="text" name="firstName" class="form-control" [(ngModel)]="loginform.firstName"
+                    #firstName="ngModel" [ngClass]="{'is-invalid' : f.submitted && firstName.invalid}" required minlength="3">
+                <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+              <div *ngIf="firstName.errors.required">First Name is Required..</div>
+          </div>
+          
+            </div> -->
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" [(ngModel)]="loginform.email" #email="ngModel"
+                    [ngClass]="{'is-invalid' : f.submitted && email.invalid}" required [email]="true">
+                <!-- <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.errors.required">Email is Required..</div>
+          </div> -->
+    
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" [(ngModel)]="loginform.password"
+                    #password="ngModel" [ngClass]="{'is-invalid' : f.submitted && password.invalid}" required  minlength="6"  maxlength="14">
+                <!-- <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+              <div *ngIf="password.errors.required">Password is Required..</div>
+          </div> -->
+          <div class="pss">
+             <p>* Password length must contain 6 to 14 characters..</p>
+        </div>
+        </div>
+        <p>First you have to register: Go to <a href="javascript:void(0)"  [routerLink]="['register']" (click)="clickBtn()">register</a></p>
+            <button type="submit" class="btn btn-primary" id="btn" [disabled]="f.form.invalid" >Submit</button>
+        </form>
+
+    </div>
+    <!-- appMouseove -->
+    <!-- <div class="list">
+  <ul *ngIf="clicked" class="list-group">
+      <li class="list-group-item list-group-item-primary"><strong> FirstName is :-</strong> {{loginform.firstName}}</li>
+      <li class="list-group-item list-group-item-success"><strong>Email is:-</strong>  {{loginform.email}}</li>
+      <li class="list-group-item list-group-item-danger"><strong> Password is :-</strong>{{loginform.password}}</li>
+  </ul>
+  </div> -->
+</div>
+<div *ngIf="isClicked">
+<router-outlet></router-outlet>
+</div>
+<!-- <div *ngIf="isClicked">
+    <app-desk></app-desk>
+</div> -->
+<!-- <div *ngIf="isClicked">
+    <app-register></app-register>
+</div> -->
+
+
